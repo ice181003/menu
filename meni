@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เมนูเครื่องดื่ม (แบบเลือกได้)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font 'Sarabun' for beautiful Thai -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Apply Sarabun font to the whole page */
+        body {
+            font-family: 'Sarabun', sans-serif;
+        }
+        /* Simple dotted line for item separation */
+        .menu-item {
+            border-bottom: 1px dashed #d1d5db; /* gray-300 */
+            padding-bottom: 0.5rem; /* 8px */
+            padding-top: 0.5rem; /* 8px */
+        }
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+        /* Style for clickable items */
+        .menu-item-clickable {
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .menu-item-clickable:hover {
+            background-color: #f9fafb; /* gray-50 */
+        }
+        /* Style for non-clickable items (no price) */
+        .menu-item-disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <div class="container mx-auto max-w-7xl p-4 md:p-8">
+        
+        <!-- Header -->
+        <header class="text-center mb-10">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800">เลือกเมนู</h1>
+            <p class="text-lg text-gray-500 mt-2">CLICK TO ORDER</p>
+        </header>
+
+        <div class="flex flex-col lg:flex-row gap-6 md:gap-8">
+        
+            <!-- Menu Grid (Main Content) -->
+            <div class="lg:w-2/3">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+
+                    <!-- Category: กาแฟสด (Fresh Coffee) -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h2 class="text-2xl font-semibold mb-4 text-gray-700 border-b border-gray-200 pb-2">กาแฟสด</h2>
+                        <ul class="text-gray-600">
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="อเมริกาโน่" data-price="30">
+                                <span>อเมริกาโน่</span>
+                                <span class="font-semibold text-gray-800">30</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>อเมริกาโน่ น้ำผึ้ง</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>อเมริกาโน่ มัคคิอาโต้</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>อเมริกาโน่ มะนาว</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>อเมริกาโน่ ส้ม</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>อเมริกาโน่ มะพร้าว</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>คาปูชิโน่</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>เอสเปรสโซ่</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>ลาเต้</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>มอกค่า</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Category: เมนูร้อน (Hot Menu) -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h2 class="text-2xl font-semibold mb-4 text-gray-700 border-b border-gray-200 pb-2">เมนูร้อน</h2>
+                        <ul class="text-gray-600">
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="อเมกาโน่ (ร้อน)" data-price="30">
+                                <span>อเมกาโน่</span>
+                                <span class="font-semibold text-gray-800">30</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>เอสเปรสโซ่ (ร้อน)</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>ลาเต้ (ร้อน)</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>คาปูชิโน่ (ร้อน)</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>มอกค่า (ร้อน)</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="โกโก้ (ร้อน)" data-price="20">
+                                <span>โกโก้</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>โอวัลติน (ร้อน)</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>เผือก (ร้อน)</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>แคนตาลูป (ร้อน)</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Category: ชา (Tea) -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h2 class="text-2xl font-semibold mb-4 text-gray-700 border-b border-gray-200 pb-2">ชา</h2>
+                        <ul class="text-gray-600">
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>ชาเย็น</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="ชาเขียว" data-price="20">
+                                <span>ชาเขียว</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>ชาไทย</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>ชาไต้หวัน</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>ชาเขียวมัทฉะ</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>ชามะนาว</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>ชาบ๊วย</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>ชาลิ้นจี่</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>ชาดำ</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Category: น้ำหวานเย็น (Iced Drinks) -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h2 class="text-2xl font-semibold mb-4 text-gray-700 border-b border-gray-200 pb-2">น้ำหวานเย็น <span class="text-lg font-medium text-gray-500">(เริ่มต้น 20.-)</span></h2>
+                        <ul class="text-gray-600">
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="เผือกหอม (เย็น)" data-price="20">
+                                <span>เผือกหอม</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="แคนตาลูป (เย็น)" data-price="20">
+                                <span>แคนตาลูป</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="นมสด (เย็น)" data-price="20">
+                                <span>นมสด</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="โกโก้ (เย็น)" data-price="20">
+                                <span>โกโก้</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="โอวัลติน (เย็น)" data-price="20">
+                                <span>โอวัลติน</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="สตรอว์เบอร์รี (เย็น)" data-price="20">
+                                <span>สตรอว์เบอร์รี</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="บลูเบอร์รี่ (เย็น)" data-price="20">
+                                <span>บลูเบอร์รี่</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="องุ่น (เย็น)" data-price="20">
+                                <span>องุ่น</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="น้ำมะพร้าว (เย็น)" data-price="20">
+                                <span>น้ำมะพร้าว</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="ส้ม (เย็น)" data-price="20">
+                                <span>ส้ม</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="ลิ้นจี่ (เย็น)" data-price="20">
+                                <span>ลิ้นจี่</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="บ๊วย (เย็น)" data-price="20">
+                                <span>บ๊วย</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="สับปะรด (เย็น)" data-price="20">
+                                <span>สับปะรด</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="แตงโม (เย็น)" data-price="20">
+                                <span>แตงโม</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="กีวี (เย็น)" data-price="20">
+                                <span>กีวี</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="มะนาว (เย็น)" data-price="20">
+                                <span>มะนาว</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Category: อิตาเลียนโซดา (Italian Soda) -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h2 class="text-2xl font-semibold mb-4 text-gray-700 border-b border-gray-200 pb-2">อิตาเลียนโซดา <span class="text-lg font-medium text-gray-500">(เริ่มต้น 20.-)</span></h2>
+                        <ul class="text-gray-600">
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="สตรอว์เบอร์รีโซดา" data-price="20">
+                                <span>สตรอว์เบอร์รี</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="สับปะรดโซดา" data-price="20">
+                                <span>สับปะรด</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="ส้มโซดา" data-price="20">
+                                <span>ส้ม</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="บลูเบอร์รี่โซดา" data-price="20">
+                                <span>บลูเบอร์รี่</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="องุ่นโซดา" data-price="20">
+                                <span>องุ่น</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="แดงโซดา" data-price="20">
+                                <span>แดง (น้ำหวาน)</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="เขียวโซดา" data-price="20">
+                                <span>เขียว (น้ำหวาน)</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="แตงโมโซดา" data-price="20">
+                                <span>แตงโม</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="ลิ้นจี่โซดา" data-price="20">
+                                <span>ลิ้นจี่</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="กีวีโซดา" data-price="20">
+                                <span>กีวี</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="มะนาวโซดา" data-price="20">
+                                <span>มะนาว</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="เสาวรสโซดา" data-price="20">
+                                <span>เสาวรส</span>
+                                <span class="font-semibold text-gray-800">20</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Category: เมนูปั่น (Frappe) -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h2 class="text-2xl font-semibold mb-4 text-gray-700 border-b border-gray-200 pb-2">เมนูปั่น</h2>
+                        <ul class="text-gray-600">
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="คาปูชิโน่ปั่น" data-price="35">
+                                <span>คาปูชิโน่ปั่น</span>
+                                <span class="font-semibold text-gray-800">35</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>เอสเปรสโซปั่น</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>ลาเต้ปั่น</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>มอกค่าปั่น</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-clickable" data-name="ชาเขียวปั่น" data-price="25">
+                                <span>ชาเขียวปั่น</span>
+                                <span class="font-semibold text-gray-800">25</span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>ชาไทยปั่น</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>ชาไต้หวันปั่น</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>แคนตาลูปปั่น</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>เผือกปั่น</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>โกโก้ปั่น</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>โอวัลตินปั่น</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>นมสดปั่น</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>สตรอว์เบอร์รีโยเกิร์ตปั่น</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>บลูเบอร์รี่โยเกิร์ตปั่น</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>องุ่นโยเกิร์ตปั่น</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>ส้มโยเกิร์ตปั่น</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <span>แตงโมปั่น</span>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                            <li class="menu-item flex justify-between items-center menu-item-disabled">
+                                <div>
+                                    <span>มะพร้าวปั่น</span>
+                                    <span class="block text-sm text-blue-600 font-medium">(ฟรีไข่มุก)</span>
+                                </div>
+                                <span class="font-semibold text-gray-800"></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Cart Section (Sidebar) -->
+            <aside class="lg:w-1/3">
+                <div class="bg-white p-6 rounded-lg shadow-sm sticky top-8">
+                    <h2 class="text-2xl font-semibold mb-4 text-gray-700 border-b border-gray-200 pb-2">รายการที่เลือก</h2>
+                    <ul id="cart-items" class="text-gray-600 mb-4 min-h-[16rem] max-h-96 overflow-y-auto divide-y divide-gray-100">
+                        <!-- Selected items will be populated by JS -->
+                        <li id="empty-cart-msg" class="text-gray-400 italic py-4">ยังไม่มีรายการ</li>
+                    </ul>
+                    <div class="border-t border-gray-200 pt-4">
+                        <div class="flex justify-between items-center text-xl font-semibold text-gray-800 mb-4">
+                            <span>ยอดรวม:</span>
+                            <span><span id="total-price">0.00</span> บาท</span>
+                        </div>
+                        <button id="clear-cart" class="w-full bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition-colors">
+                            ล้างรายการ
+                        </button>
+                        <!-- ✨ New Gemini Feature Button -->
+                        <button id="analyze-order" class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors mt-2">
+                            ✨ วิเคราะห์ออเดอร์
+                        </button>
+                    </div>
+                    <!-- ✨ New Gemini Result Container -->
+                    <div id="analysis-result-container" class="mt-4 p-4 bg-gray-100 rounded-lg text-gray-700 hidden">
+                        <h3 class="font-semibold text-lg mb-2">✨ คำแนะนำจาก AI</h3>
+                        <p id="analysis-result-text" class="whitespace-pre-wrap">กำลังวิเคราะห์...</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let cart = []; // Store cart items as { name, price }
+
+            const cartItemsList = document.getElementById('cart-items');
+            const emptyCartMsg = document.getElementById('empty-cart-msg');
+            const totalPriceEl = document.getElementById('total-price');
+            const clearCartBtn = document.getElementById('clear-cart');
+            const allMenuItems = document.querySelectorAll('.menu-item-clickable');
+            
+            // ✨ New elements for Gemini feature
+            const analyzeOrderBtn = document.getElementById('analyze-order');
+            const analysisResultContainer = document.getElementById('analysis-result-container');
+            const analysisResultText = document.getElementById('analysis-result-text');
+
+            // ✨ Gemini API Configuration
+            const apiKey = ""; // API key is handled by the environment
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+
+            // Function to render the cart
+            function renderCart() {
+                // Clear current list
+                cartItemsList.innerHTML = '';
+
+                if (cart.length === 0) {
+                    cartItemsList.appendChild(emptyCartMsg); // Show empty message
+                    totalPriceEl.textContent = '0.00';
+                    analysisResultContainer.classList.add('hidden'); // ✨ Hide analysis if cart is empty
+                    return;
+                }
+
+                let total = 0;
+                
+                // Use an object to group items
+                const groupedItems = {};
+                
+                cart.forEach(item => {
+                    if (groupedItems[item.name]) {
+                        groupedItems[item.name].quantity += 1;
+                    } else {
+                        groupedItems[item.name] = {
+                            price: item.price,
+                            quantity: 1
+                        };
+                    }
+                    total += item.price; // Add price to total
+                });
+
+                // Render grouped items
+                Object.keys(groupedItems).forEach(name => {
+                    const item = groupedItems[name];
+                    const li = document.createElement('li');
+                    li.className = 'flex justify-between items-center py-2';
+                    li.innerHTML = `
+                        <span>
+                            <span class="font-semibold">${item.quantity}x</span> ${name}
+                        </span>
+                        <span class="font-semibold">${(item.price * item.quantity).toFixed(2)}</span>
+                    `;
+                    cartItemsList.appendChild(li);
+                });
+
+                // Update total price
+                totalPriceEl.textContent = total.toFixed(2);
+            }
+
+            // Function to add item to cart
+            function addToCart(name, price) {
+                cart.push({ name, price });
+                renderCart();
+            }
+
+            // Add click event listeners to all menu items
+            allMenuItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const name = item.dataset.name;
+                    const price = parseFloat(item.dataset.price);
+                    
+                    if (name && !isNaN(price)) {
+                        addToCart(name, price);
+                    }
+                });
+            });
+
+            // Add click event listener to clear cart button
+            clearCartBtn.addEventListener('click', () => {
+                cart = []; // Empty the cart array
+                renderCart(); // Re-render the cart
+                analysisResultContainer.classList.add('hidden'); // ✨ Hide analysis
+                analysisResultText.textContent = "กำลังวิเคราะห์..."; // ✨ Reset text
+            });
+
+            // ✨ New Event listener for Analyze Order button
+            analyzeOrderBtn.addEventListener('click', () => {
+                if (cart.length === 0) {
+                    analysisResultContainer.classList.remove('hidden');
+                    analysisResultText.textContent = "กรุณาเลือกเมนูอย่างน้อย 1 รายการก่อนครับ";
+                    return;
+                }
+                
+                // Get item names from cart
+                const itemNames = cart.map(item => item.name).join(', ');
+                
+                // Call the Gemini API
+                callGeminiApi(itemNames);
+            });
+
+            // ✨ New Function to call Gemini API
+            async function callGeminiApi(itemNames) {
+                // Show loading state
+                analysisResultContainer.classList.remove('hidden');
+                analysisResultText.textContent = "กำลังวิเคราะห์... 🧠";
+
+                const systemPrompt = "คุณคือผู้ช่วยร้านกาแฟอารมณ์ดี หน้าที่ของคุณคือการดูรายการสั่งซื้อของลูกค้า และให้คำแนะนำหรือคำชมที่สนุกสนานและสร้างสรรค์ (เป็นภาษาไทย) โดยสรุปสั้นๆ ไม่เกิน 2-3 ประโยค เช่น ถ้าลูกค้าสั่งกาแฟเยอะ บอกว่า 'ดูเหมือนวันนี้จะต้องลุยงานหนักแน่ๆ!' หรือถ้าสั่งของหวานเยอะ 'สายหวานตัวจริง!' หรือแนะนำของที่เข้ากัน";
+                
+                const userQuery = `ลูกค้าสั่ง: ${itemNames}. ช่วยวิเคราะห์ออเดอร์นี้หน่อยครับ`;
+
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    systemInstruction: {
+                        parts: [{ text: systemPrompt }]
+                    },
+                };
+
+                // Exponential backoff for retries
+                let response;
+                let delay = 1000;
+                for (let i = 0; i < 3; i++) {
+                    try {
+                        response = await fetch(apiUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+
+                        if (response.ok) {
+                            break; // Success
+                        } else if (response.status === 429 || response.status >= 500) {
+                            // Retry on rate limit or server error
+                            await new Promise(resolve => setTimeout(resolve, delay));
+                            delay *= 2;
+                        } else {
+                            throw new Error(`API error: ${response.statusText}`);
+                        }
+
+                    } catch (error) {
+                        if (i === 2) {
+                           console.error("Error calling Gemini API:", error);
+                           analysisResultText.textContent = "เกิดข้อผิดพลาดในการเชื่อมต่อครับ";
+                           return;
+                        }
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                        delay *= 2;
+                    }
+                }
+
+                try {
+                    const result = await response.json();
+                    const candidate = result.candidates?.[0];
+
+                    if (candidate && candidate.content?.parts?.[0]?.text) {
+                        const text = candidate.content.parts[0].text;
+                        analysisResultText.textContent = text;
+                    } else {
+                        analysisResultText.textContent = "ขออภัยครับ ไม่สามารถวิเคราะห์ได้ในขณะนี้";
+                    }
+                } catch (e) {
+                     analysisResultText.textContent = "ขออภัยครับ ไม่สามารถอ่านผลลัพธ์ได้";
+                }
+            }
+
+            // Initial render
+            renderCart();
+        });
+    </script>
+
+</body>
+</html>
+
